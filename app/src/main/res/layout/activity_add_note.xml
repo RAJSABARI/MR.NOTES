@@ -42,7 +42,7 @@ android:id="@+id/linear"
             android:layout_marginTop="20dp"
             android:background="#3003A9F4"
             android:gravity="top"
-            android:hint="Title"
+            android:hint="Titles"
             android:lines="2"
             android:padding="10dp" />
 
