@@ -18,7 +18,7 @@ import io.realm.RealmResults;
 public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
 TextView titleoutput;
 TextView descriptionoutput;
-//TextView timeoutput;
+TextView timeoutput;
 
 
     Context context;
@@ -42,8 +42,8 @@ TextView descriptionoutput;
         Notes notes=noteList.get(position);
         holder.titleoutput.setText(notes.getTitle());
         holder.descriptionoutput.setText(notes.getDescription());
-      // String formateTime= DateFormat.getDateTimeInstance().format(notes.createdTime);
-       // holder.timeoutput.setText(formateTime);
+       String formateTime= DateFormat.getDateTimeInstance().format(notes.createdTime);
+        holder.timeoutput.setText(formateTime);
     }
 
     @Override
@@ -54,14 +54,14 @@ TextView descriptionoutput;
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleoutput;
         TextView descriptionoutput;
-      //  TextView timeoutput;
+        TextView timeoutput;
 
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
             titleoutput=itemView.findViewById(R.id.titleoutput);
             descriptionoutput=itemView.findViewById(R.id.descriptionoutput);
-          //  titleoutput=itemView.findViewById(R.id.titleoutput);
+            timeoutput=itemView.findViewById(R.id.timeoutput);
         }
     }
 }
