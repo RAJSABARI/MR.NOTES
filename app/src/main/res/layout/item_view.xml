@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/rounded">
+    android:background="@drawable/rounded"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp">
 
 <TextView
     android:textStyle="bold"
@@ -30,7 +32,8 @@
         android:id="@+id/timeoutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FF9800"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmr"
         android:textSize="12dp"
         tools:text="Feb 03 2023"
         android:gravity="end"/>
