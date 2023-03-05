@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Realm.init(getApplicationContext());
         Realm realm= Realm.getDefaultInstance();
-        RealmResults<Notes> notesList=realm.where(Notes.class).findAll();
+        RealmResults<Notes> notesList=realm.where(Notes.class).findAll().sort("createdTime", Sort.DESCENDING);
 
         RecyclerView recyclerView=findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
