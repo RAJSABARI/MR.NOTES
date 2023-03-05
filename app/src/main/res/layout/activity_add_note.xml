@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNoteActivity"
+    android:orientation="vertical"
+android:background="#fff">
+    <TextView
+
+        android:id="@+id/name"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Note"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+       android:fontFamily="@font/dmsansbold"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+android:id="@+id/linear"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="#3003A9F4"
+            android:gravity="top"
+            android:hint="Title"
+            android:lines="2"
+            android:padding="10dp" />
+
+        <EditText
+
+            android:id="@+id/des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="#3003A9F4"
+            android:gravity="top"
+            android:hint="Description"
+            android:lines="5"
+            android:padding="10dp" />
+
+        <Button
+
+            android:id="@+id/save1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#03A9F4"
+            android:text="SAVE" />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="200dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:fontFamily="@font/dmr"
+        android:text="~ Keep Noting...!" />
+
+</RelativeLayout>
