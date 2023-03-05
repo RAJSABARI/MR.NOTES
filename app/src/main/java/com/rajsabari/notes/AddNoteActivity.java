@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import io.realm.Realm;
@@ -19,7 +20,7 @@ public class AddNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_note);
         EditText titleinput = findViewById(R.id.title);
         EditText descriptioninput = findViewById(R.id.des);
-        Button savebtn = findViewById(R.id.save1);
+        TextView savebtn = findViewById(R.id.save1);
         realm = Realm.getDefaultInstance();
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
