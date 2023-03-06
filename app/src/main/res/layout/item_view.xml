@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/rounded"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp">
+    android:padding="10dp">
 
-<TextView
-    android:textStyle="bold"
-    android:id="@+id/titleoutput"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="@color/black"
-    android:textSize="22dp"
-    tools:text="My Title"/>
     <TextView
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/titleoutput"
+        android:id="@+id/titleoutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        tools:text="My Title" />
+
+    <TextView
         android:id="@+id/descriptionoutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/titleoutput"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:text="My Description"/>
+        tools:text="My Description" />
+
     <TextView
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/descriptionoutput"
         android:id="@+id/timeoutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_below="@+id/descriptionoutput"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/dmr"
+        android:gravity="end"
+        android:textColor="@color/black"
         android:textSize="12dp"
-        tools:text="Feb 03 2023"
-        android:gravity="end"/>
+        tools:text="Feb 03 2023" />
 
 </RelativeLayout>

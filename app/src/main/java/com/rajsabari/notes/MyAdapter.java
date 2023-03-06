@@ -18,10 +18,10 @@ import java.util.zip.DataFormatException;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
-TextView titleoutput;
-TextView descriptionoutput;
-TextView timeoutput;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+    TextView titleoutput;
+    TextView descriptionoutput;
+    TextView timeoutput;
 
 
     Context context;
@@ -37,27 +37,27 @@ TextView timeoutput;
     @NonNull
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false)) ;
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Notes notes=noteList.get(position);
+        Notes notes = noteList.get(position);
         holder.titleoutput.setText(notes.getTitle());
         holder.descriptionoutput.setText(notes.getDescription());
-       String formateTime= DateFormat.getDateTimeInstance().format(notes.createdTime);
+        String formateTime = DateFormat.getDateTimeInstance().format(notes.createdTime);
         holder.timeoutput.setText(formateTime);
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                PopupMenu menu= new PopupMenu(context,view);
+                PopupMenu menu = new PopupMenu(context, view);
                 menu.getMenu().add("DELETE");
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle().equals("DELETE")){
-                            Realm realm= Realm.getDefaultInstance();
+                        if (item.getTitle().equals("DELETE")) {
+                            Realm realm = Realm.getDefaultInstance();
                             realm.beginTransaction();
                             notes.deleteFromRealm();
                             realm.commitTransaction();
@@ -85,9 +85,9 @@ TextView timeoutput;
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            titleoutput=itemView.findViewById(R.id.titleoutput);
-            descriptionoutput=itemView.findViewById(R.id.descriptionoutput);
-            timeoutput=itemView.findViewById(R.id.timeoutput);
+            titleoutput = itemView.findViewById(R.id.titleoutput);
+            descriptionoutput = itemView.findViewById(R.id.descriptionoutput);
+            timeoutput = itemView.findViewById(R.id.timeoutput);
         }
     }
 }

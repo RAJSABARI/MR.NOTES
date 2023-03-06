@@ -5,6 +5,7 @@ import io.realm.RealmObject;
 public class Notes extends RealmObject {
     String title;
     String description;
+    long createdTime;
 
     public String getTitle() {
         return title;
@@ -30,6 +31,5 @@ public class Notes extends RealmObject {
         this.createdTime = createdTime;
     }
 
-    long createdTime;
 
 }

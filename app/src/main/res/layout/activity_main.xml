@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@color/white"
-   >
+    tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
         android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
 
 
         />
-  <ImageView
 
-    android:layout_marginRight="13dp"
-      android:layout_marginBottom="27dp"
-      android:layout_alignParentRight="true"
-android:layout_alignParentBottom="true"
-      android:id="@+id/adddtheitem"
-      android:layout_width="115dp"
-      android:layout_height="115dp"
+    <ImageView
 
-     android:src="@drawable/pluse1"/>
+        android:id="@+id/adddtheitem"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="27dp"
+
+        android:src="@drawable/pluse1" />
 
 </RelativeLayout>
