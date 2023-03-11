@@ -39,15 +39,5 @@
         android:textColor="@color/black"
         android:textSize="12dp"
         tools:text="Feb 03 2023" />
-    <TextView
-        android:id="@+id/idout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/descriptionoutput"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/dmr"
-        android:textColor="@color/black"
-        android:textSize="12dp"
-        tools:text="id" />
 
 </RelativeLayout>
