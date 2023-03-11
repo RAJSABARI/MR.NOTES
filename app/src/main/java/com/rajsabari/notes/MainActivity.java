@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.window.SplashScreen;
 
 import io.realm.Realm;
@@ -16,13 +17,13 @@ import io.realm.RealmResults;
 import io.realm.Sort;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView notificationtext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        notificationtext = findViewById(R.id.notificationtext);
         ImageView addnote = findViewById(R.id.adddtheitem);
         addnote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,20 +31,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AddNoteActivity.class));
             }
         });
-        Realm.init(getApplicationContext());
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<Notes> notesList = realm.where(Notes.class).findAll().sort("createdTime", Sort.DESCENDING);
-
+        RealmResults<Notes> notesList = Realm.getDefaultInstance().where(Notes.class).findAll().sort("createdTime", Sort.DESCENDING);
+        notofication(notesList);
         RecyclerView recyclerView = findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyAdapter myAdapter = new MyAdapter(getApplicationContext(), notesList);
         recyclerView.setAdapter(myAdapter);
-        notesList.addChangeListener(new RealmChangeListener<RealmResults<Notes>>() {
-            @Override
-            public void onChange(RealmResults<Notes> notes) {
-                myAdapter.notifyDataSetChanged();
-            }
+        notesList.addChangeListener(notes -> {
+            myAdapter.notifyDataSetChanged();
+            notofication(notesList);
         });
 
+    }
+
+    public void notofication(RealmResults<Notes> notesList) {
+
+        if (notesList.size() > 0) {
+            notificationtext.setVisibility(View.GONE);
+        } else {
+            notificationtext.setVisibility(View.VISIBLE);
+        }
     }
 }
