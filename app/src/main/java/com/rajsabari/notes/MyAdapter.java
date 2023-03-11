@@ -1,10 +1,12 @@
 package com.rajsabari.notes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.TextSnapshot;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,10 +20,13 @@ import java.util.zip.DataFormatException;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+import java.util.UUID;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     TextView titleoutput;
     TextView descriptionoutput;
     TextView timeoutput;
+    TextView uuid; //uuid
 
 
     Context context;
@@ -43,6 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Notes notes = noteList.get(position);
+        holder.uuid.setText(notes.getUuid()); //uuid
         holder.titleoutput.setText(notes.getTitle());
         holder.descriptionoutput.setText(notes.getDescription());
         String formateTime = DateFormat.getDateTimeInstance().format(notes.createdTime);
@@ -70,6 +76,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 return true;
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AddNoteActivity.class);
+                intent.putExtra("title", notes.title);
+                intent.putExtra("Description", notes.description);
+//                intent.putExtra("id",notes.uuid );//uuid
+                context.startActivity(intent);
+
+            }
+        });
+        return;
+
     }
 
     @Override
@@ -81,6 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         TextView titleoutput;
         TextView descriptionoutput;
         TextView timeoutput;
+//        TextView uuid;
 
         public ViewHolder(@NonNull View itemView) {
 
@@ -88,6 +108,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             titleoutput = itemView.findViewById(R.id.titleoutput);
             descriptionoutput = itemView.findViewById(R.id.descriptionoutput);
             timeoutput = itemView.findViewById(R.id.timeoutput);
+//            uuid=itemView.findViewById(R.id.idout);
         }
     }
 }
+
