@@ -31,7 +31,8 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/dmr"
-        android:text="from RS"
+        android:text="from \nRS"
+        android:textAlignment="center"
         android:textColor="#03A9F4" />
 
 </RelativeLayout>
