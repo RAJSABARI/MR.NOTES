@@ -56,18 +56,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             public boolean onLongClick(View view) {
                 PopupMenu menu = new PopupMenu(context, view);
                 menu.getMenu().add("DELETE");
-                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getTitle().equals("DELETE")) {
-                            Realm realm = Realm.getDefaultInstance();
-                            realm.beginTransaction();
-                            notes.deleteFromRealm();
-                            realm.commitTransaction();
-                            Toast.makeText(context, "Note Deleted", Toast.LENGTH_SHORT).show();
-                        }
-                        return true;
+                menu.setOnMenuItemClickListener(item -> {
+                    if (item.getTitle().equals("DELETE")) {
+                        Realm realm = Realm.getDefaultInstance();
+                        realm.beginTransaction();
+                        notes.deleteFromRealm();
+                        realm.commitTransaction();
+                        Toast.makeText(context, "Note Deleted", Toast.LENGTH_SHORT).show();
                     }
+                    return true;
                 });
                 menu.show();
                 return true;
@@ -93,14 +90,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         TextView titleoutput;
         TextView descriptionoutput;
         TextView timeoutput;
-//        TextView uuid;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titleoutput = itemView.findViewById(R.id.titleoutput);
             descriptionoutput = itemView.findViewById(R.id.descriptionoutput);
             timeoutput = itemView.findViewById(R.id.timeoutput);
-//            uuid=itemView.findViewById(R.id.idout);
         }
     }
 }
