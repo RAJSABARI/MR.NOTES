@@ -4,8 +4,6 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Notes extends RealmObject {
-
-
     @PrimaryKey
     String uuid;
     String title;
@@ -43,6 +41,5 @@ public class Notes extends RealmObject {
     public void setCreatedTime(long createdTime) {
         this.createdTime = createdTime;
     }
-
 
 }

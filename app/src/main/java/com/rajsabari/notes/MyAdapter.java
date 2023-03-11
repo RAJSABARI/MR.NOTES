@@ -1,5 +1,7 @@
 package com.rajsabari.notes;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -27,8 +29,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     TextView descriptionoutput;
     TextView timeoutput;
     TextView uuid; //uuid
-
-
     Context context;
 
     public MyAdapter(Context context, RealmResults<Notes> noteList) {
@@ -37,7 +37,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     RealmResults<Notes> noteList;
-
 
     @NonNull
     @Override
@@ -48,12 +47,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Notes notes = noteList.get(position);
-        holder.uuid.setText(notes.getUuid()); //uuid
         holder.titleoutput.setText(notes.getTitle());
         holder.descriptionoutput.setText(notes.getDescription());
         String formateTime = DateFormat.getDateTimeInstance().format(notes.createdTime);
         holder.timeoutput.setText(formateTime);
-
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -80,15 +77,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, AddNoteActivity.class);
-                intent.putExtra("title", notes.title);
-                intent.putExtra("Description", notes.description);
-//                intent.putExtra("id",notes.uuid );//uuid
+                intent.putExtra("id", notes.uuid);//uuid
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
             }
         });
-        return;
-
     }
 
     @Override
@@ -103,7 +96,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 //        TextView uuid;
 
         public ViewHolder(@NonNull View itemView) {
-
             super(itemView);
             titleoutput = itemView.findViewById(R.id.titleoutput);
             descriptionoutput = itemView.findViewById(R.id.descriptionoutput);
