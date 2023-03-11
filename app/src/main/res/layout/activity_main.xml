@@ -4,27 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-   >
-
+    android:background="@color/white"
+    tools:context=".MainActivity">
+<TextView
+    android:id="@+id/notes"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Notes"
+    android:layout_marginTop="15dp"
+    android:layout_centerHorizontal="true"
+    android:textColor="@color/black"
+    android:fontFamily="@font/dmsansbold"
+    android:textSize="20sp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/notes"
         android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
 
+    <TextView
+        android:id="@+id/notificationtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Please use add button  to \nadd the notes"
+        android:textAlignment="center" />
 
-        />
-  <ImageView
-
-    android:layout_marginRight="13dp"
-      android:layout_marginBottom="27dp"
-      android:layout_alignParentRight="true"
-android:layout_alignParentBottom="true"
-      android:id="@+id/adddtheitem"
-      android:layout_width="115dp"
-      android:layout_height="115dp"
-
-     android:src="@drawable/pluse1"/>
+    <ImageView
+        android:id="@+id/adddtheitem"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="27dp"
+        android:src="@drawable/pluse1" />
 
 </RelativeLayout>

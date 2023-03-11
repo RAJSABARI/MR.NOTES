@@ -10,7 +10,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Realm.init(this);
-        RealmConfiguration note=new RealmConfiguration.Builder()
+        RealmConfiguration note = new RealmConfiguration.Builder()
                 .name("notes")
                 .schemaVersion(1)
                 .allowWritesOnUiThread(true)
@@ -18,4 +18,4 @@ public class MyApplication extends Application {
                 .build();
         Realm.setDefaultConfiguration(note);
     }
-    }
+}
