@@ -1,14 +1,10 @@
 package com.rajsabari.notes;
 
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.TextSnapshot;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,12 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
-import java.util.zip.DataFormatException;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-
-import java.util.UUID;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     TextView titleoutput;

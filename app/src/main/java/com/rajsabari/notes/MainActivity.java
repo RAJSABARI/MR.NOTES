@@ -9,10 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.window.SplashScreen;
 
 import io.realm.Realm;
-import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyAdapter myAdapter = new MyAdapter(getApplicationContext(), notesList);
         recyclerView.setAdapter(myAdapter);
-        notesList.addChangeListener(notes -> {
+        notesList.addChangeListener((RealmResults<Notes> notes) -> {
             myAdapter.notifyDataSetChanged();
             notofication(notesList);
         });

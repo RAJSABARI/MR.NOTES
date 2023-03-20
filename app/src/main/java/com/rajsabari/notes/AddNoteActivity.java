@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,7 +38,7 @@ String toast="Notes saved";
             toast="Notes updated";
         }
 
-        savebtn.setOnClickListener(view -> {
+        savebtn.setOnClickListener((View view) -> {
             String title = titleinput.getText().toString();
             String description = descriptioninput.getText().toString();
             long createTime = System.currentTimeMillis();
@@ -49,14 +48,21 @@ String toast="Notes saved";
                 note.setDescription(description);
                 note.setCreatedTime(createTime);
                 note.setUuid(uuid);//uuid
-                realm.executeTransaction(realm -> realm.copyToRealmOrUpdate(note));
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        realm.copyToRealmOrUpdate(note);
+                    }
+                });
                 Toast.makeText(AddNoteActivity.this, toast, Toast.LENGTH_SHORT).show();
                 finish();
             } else {
                 Toast.makeText(AddNoteActivity.this, "Enter the Field", Toast.LENGTH_SHORT).show();
             }
         });
-        finish.setOnClickListener(view -> onBackPressed());
+        finish.setOnClickListener((View view) -> {
+            onBackPressed();
+        });
 
     }
 
